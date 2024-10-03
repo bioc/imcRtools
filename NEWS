@@ -223,3 +223,7 @@ Changes in version 1.9.2 (2023-12-14)
 
 + maintainer change
 
+Changes in version 1.11.1 (2024-10-03)
+
++ fixed BiocNeighbors error for DFrame type data
+
