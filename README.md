@@ -109,4 +109,4 @@ Alternatively, you can fork the repository, add your change and issue a pull req
 
 ## Maintainer
 
-[Nils Eling](https://github.com/nilseling)
+**Daniel Schulz**
