@@ -348,12 +348,12 @@ test_that("testInteractions gives same results as neighbouRhood", {
     expect_equal(dat_p$group, imcRtools_classic_perm$group_by)
     expect_equal(as.character(dat_p$FirstLabel), imcRtools_classic_perm$from_label)
     expect_equal(as.character(dat_p$SecondLabel), imcRtools_classic_perm$to_label)
-    expect_equal(dat_p$p_gt[!is.na(imcRtools_classic$ct)], imcRtools_classic_perm$p_gt[!is.na(imcRtools_classic$ct)])
-    expect_equal(dat_p$p_lt[!is.na(imcRtools_classic$ct)], imcRtools_classic_perm$p_lt[!is.na(imcRtools_classic$ct)])
-    expect_equal(dat_p$direction[!is.na(imcRtools_classic$ct)], imcRtools_classic_perm$interaction[!is.na(imcRtools_classic$ct)])
-    expect_equal(dat_p$p[!is.na(imcRtools_classic$ct)], imcRtools_classic_perm$p[!is.na(imcRtools_classic$ct)])
-    expect_equal(dat_p$sig[!is.na(imcRtools_classic$ct)], imcRtools_classic_perm$sig[!is.na(imcRtools_classic$ct)])
-    expect_equal(dat_p$sigval[!is.na(imcRtools_classic$ct)], imcRtools_classic_perm$sigval[!is.na(imcRtools_classic$ct)])
+    expect_equal(dat_p$p_gt[!is.na(imcRtools_classic$ct)], imcRtools_classic_perm$p_gt[!is.na(imcRtools_classic_perm$ct)])
+    expect_equal(dat_p$p_lt[!is.na(imcRtools_classic$ct)], imcRtools_classic_perm$p_lt[!is.na(imcRtools_classic_perm$ct)])
+    expect_equal(dat_p$direction[!is.na(imcRtools_classic$ct)], imcRtools_classic_perm$interaction[!is.na(imcRtools_classic_perm$ct)])
+    expect_equal(dat_p$p[!is.na(imcRtools_classic$ct)], imcRtools_classic_perm$p[!is.na(imcRtools_classic_perm$ct)])
+    expect_equal(dat_p$sig[!is.na(imcRtools_classic$ct)], imcRtools_classic_perm$sig[!is.na(imcRtools_classic_perm$ct)])
+    expect_equal(dat_p$sigval[!is.na(imcRtools_classic$ct)], imcRtools_classic_perm$sigval[!is.na(imcRtools_classic_perm$ct)])
     
     ###################################### histocat #############################
     d <- prepare_tables(dat_cells, dat_relation)
