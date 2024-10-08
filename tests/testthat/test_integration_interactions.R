@@ -167,10 +167,12 @@ calc_p_vals<- function(dat_baseline, dat_perm, n_perm, p_tresh=0.01){
     dat_perm[, ':='(ct_perm=replace(ct_perm, is.na(ct_perm), 0),
                     ct_obs=replace(ct_obs, is.na(ct_obs), 0)
     )]
-    
-    
-    dat_stat = dat_perm[ , .(p_gt=ifelse(max(ct_obs)==0, 1,(sum(ct_perm>=ct_obs)+1)/(n_perm+1)),
-                             p_lt=(n_perm-sum(ct_perm>ct_obs)+1)/(n_perm+1)) , by=.(group, FirstLabel, SecondLabel)]
+    # We introduced a more lenient way of checking equality to avoid issues
+    # with machine precision
+    tolerance <- sqrt(.Machine$double.eps)
+    dat_stat <- dat_perm[ , .(p_gt = ifelse(max(ct_obs) == 0, 1, (sum((ct_perm - ct_obs) > -tolerance) + 1) / (n_perm + 1)),
+                              p_lt = (n_perm - sum((ct_perm - ct_obs) > tolerance) + 1) / (n_perm + 1)),
+                          by=.(group, FirstLabel, SecondLabel)]
     
     dat_stat[, direction := p_gt < p_lt]
     dat_stat[, p := p_gt * direction + p_lt * (direction == FALSE)]

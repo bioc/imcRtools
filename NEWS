@@ -227,3 +227,6 @@ Changes in version 1.11.1 (2024-10-03)
 
 + fixed BiocNeighbors error for DFrame type data
 
+Changes in version 1.11.2 (2024-10-08)
+
++ fixed testInteraction and countInteraction tests due to machine precision issues
