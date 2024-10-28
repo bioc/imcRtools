@@ -61,7 +61,7 @@ test_that("detectCommunity function works", {
                                              ))
   expect_false(identical(cur_sce_4$spatial_community, cur_sce$spatial_community))
   dat <- as.data.frame(unclass(table(cur_sce_4$spatial_community,cur_sce_4$CellType)))
-  expect_true(all(rowSums(dat != 0) == 1))
+  expect_true(all.equal(unique(rowSums(dat != 0)),1, check.attributes = FALSE))
 
   
   # manual coding spatial communities gives the same result
